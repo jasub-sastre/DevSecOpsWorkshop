@@ -1,3 +1,3 @@
 Integrantes del grupo - Taller DevSecOps (DYAS)
 
-- Jasub David Sastre Arias - davidsaar@unisabana.edu.co
+- Jasub Sastre - davidsaar@unisabana.edu.co
