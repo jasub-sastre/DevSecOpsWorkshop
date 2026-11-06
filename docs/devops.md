@@ -121,3 +121,16 @@ El workflow `dora.yml` calcula cada lunes (o a mano, con *Run workflow*) las cua
 | Tiempo de restauración | Mediana del tiempo entre un despliegue fallido y el siguiente exitoso. | Qué tan rápido el equipo vuelve a tener una versión sana desplegada. La reversión automática cuenta como fallo; el arreglo posterior cierra el intervalo. |
 
 Las métricas se leen como tendencia del equipo, no como meta individual: con pocas ejecuciones, un solo despliegue cambia mucho los valores. El resultado queda en el resumen de la ejecución y en el artefacto `metricas-dora`.
+
+### Valores medidos
+
+Ejecución manual de `dora.yml` sobre el historial real del taller (5 despliegues del job *Desplegar y verificar*: 4 exitosos y 1 fallido, el del ejercicio 5):
+
+| Métrica | Valor |
+|---|---|
+| Frecuencia de despliegue | 4 despliegues exitosos por semana |
+| Tiempo de espera de los cambios (mediana) | 10 min |
+| Tasa de fallos de los cambios | 20 % |
+| Tiempo de restauración (mediana) | 24 min |
+
+El pipeline es corto de punta a punta (10 min) y el único fallo lo detectó la prueba de carga del SLO después del despliegue, no los checks del Pull Request. La reversión automática devolvió la versión anterior en el mismo job; el tiempo de restauración cuenta hasta el siguiente despliegue exitoso (el Pull Request de reversión). Con solo 5 despliegues, un fallo mueve la tasa 20 puntos: son una foto del taller, no una tendencia.
